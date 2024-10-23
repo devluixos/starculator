@@ -1,0 +1,47 @@
+# ----------------------------
+# Root Level Git Ignore
+# ----------------------------
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+
+# Docker Files
+docker-compose.override.yml
+*.dockerfile
+
+# Build Outputs
+nginx/html/
+
+# OS-Specific Files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor Directories and Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs/
+*.log
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+
+# Other Temporary or Generated Files
+*.bak
+*.swp
+
+# Security
+# If config.yml contains sensitive information, consider ignoring it
+# Uncomment the following line if necessary
+# config.yml
+
+# ----------------------------
+# End of Root Level Git Ignore
+# ----------------------------
