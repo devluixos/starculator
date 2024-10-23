@@ -41,8 +41,8 @@ services:
     networks:
       - webnet
     volumes:
-      - ../:/home/coder/project
-    user: "1000:1000"
+      - ../:/home/coder/project:rw
+    user: "1001:1001"  # Use the host UID and GID here
     stdin_open: true
     tty: true
     restart: unless-stopped
