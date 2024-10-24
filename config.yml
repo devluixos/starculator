@@ -1,15 +1,16 @@
+# config.yml
 ingress:
-  # Production Frontend
+  # Frontend
   - hostname: starculator.space
     service: http://localhost:8080
-
   # VSCode Server
   - hostname: code.starculator.space
     service: http://localhost:8081
-
   # Development Frontend
   - hostname: dev.starculator.space
     service: http://localhost:8082
-
+  # Backend API - direct to backend port
+  - hostname: backend.starculator.space
+    service: http://localhost:8000
   # Fallback for other requests
   - service: http_status:404
