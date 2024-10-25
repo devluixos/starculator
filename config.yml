@@ -1,16 +1,10 @@
-# config.yml
-ingress:
-  # Frontend
-  - hostname: starculator.space
-    service: http://localhost:8080
-  # VSCode Server
-  - hostname: code.starculator.space
-    service: http://localhost:8081
-  # Development Frontend
-  - hostname: dev.starculator.space
-    service: http://localhost:8082
-  # Backend API - direct to backend port
-  - hostname: backend.starculator.space
-    service: http://localhost:8000
-  # Fallback for other requests
-  - service: http_status:404
+{
+  "ingress":[
+    {"hostname":"starculator.space", "originRequest":{}, "service":"http://192.168.1.23:8080"},
+    {"hostname":"code.starculator.space", "originRequest":{}, "service":"http://192.168.1.23:8081"},
+    {"hostname":"dev.starculator.space", "originRequest":{}, "service":"http://192.168.1.23:8082"},
+    {"hostname":"backend.starculator.space", "originRequest":{}, "service":"http://192.168.1.23:8000"},
+    {"service":"http_status:404"}
+  ],
+  "warp-routing":{"enabled":false}
+}

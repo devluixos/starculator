@@ -5,14 +5,14 @@ services:
     image: nginx:latest
     container_name: webserver
     ports:
-      - "8080:80"
+      - "8080:80"  # Production
+      - "8082:80"  # Development (map external 8082 to container's 80)
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/html:/usr/share/nginx/html:ro        # Production build
+      - ./nginx/html-dev:/usr/share/nginx/html-dev:ro  # Development build
     networks:
       - webnet
-    depends_on:
-      - backend
     restart: unless-stopped
 
   cloudflared:
@@ -76,26 +76,11 @@ services:
     depends_on:
       - database
 
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile_dev
-    container_name: frontend
-    ports:
-      - "8082:5173"
-    volumes:
-      - ./frontend:/app
-    stdin_open: true
-    tty: true
-    networks:
-      - webnet
-    profiles:
-      - dev
-    restart: unless-stopped
-
 networks:
   webnet:
     driver: bridge
 
 volumes:
   pgdata:
+  nginx_cache:
+  nginx_run:
