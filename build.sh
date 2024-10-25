@@ -19,11 +19,11 @@ build_dev() {
     echo "📦 Copying to nginx dev directory..."
     sudo mkdir -p nginx/html-dev
     sudo rm -rf nginx/html-dev/*
-    sudo cp -r frontend/build/* nginx/html-dev/
+    sudo cp -r frontend/dist/* nginx/html-dev/  # Changed from build to dist
     set_permissions nginx/html-dev
 }
 
-# Function to build production version
+# Function to build prod version
 build_prod() {
     echo "🏗️ Building production version..."
     cd frontend
@@ -33,7 +33,7 @@ build_prod() {
     echo "📦 Copying to nginx production directory..."
     sudo mkdir -p nginx/html
     sudo rm -rf nginx/html/*
-    sudo cp -r frontend/build/* nginx/html/
+    sudo cp -r frontend/dist/* nginx/html/  # Changed from build to dist
     set_permissions nginx/html
 }
 
