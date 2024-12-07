@@ -37,6 +37,10 @@ temp/
 *.bak
 *.swp
 
+/node_modules
+/node_modules/*
+*/node_modules/*
+
 # Security
 # If config.yml contains sensitive information, consider ignoring it
 # Uncomment the following line if necessary
